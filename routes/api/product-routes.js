@@ -99,8 +99,6 @@ router.put("/:id", (req, res) => {
         .map(({ id }) => id);
 
       // run both actions
-      console.log(newProductTags);
-      console.log(productTagsToRemove);
       return Promise.all([
         ProductTag.destroy({ where: { id: productTagsToRemove } }),
         ProductTag.bulkCreate(newProductTags),
